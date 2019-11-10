@@ -30,8 +30,12 @@
                 <li><a href="contact.php">contact</a></li>
                 <li><a href="login.php">se connecter</a></li>
                 <li><a href="panier.php">panier</a></li>
-                <li> <span class="items">ITEMS <?= $panier->count(); ?> </span></li>
-                <li> <span class="total"><?= number_format($panier->total() * 1.196, 2, ',', ' ') ?>€</span></li>
+                <li> <span class="items">ITEMS
+                        <span id="count"><?= $panier->count(); ?></span>
+                    </span></li>
+                <li> <span class="letotal">
+                        <span id="total"><?= number_format($panier->total(), 2, ',', ' ') ?></span>€
+                    </span></li>
 
                 <li> <input type="search" id="search" name="search" placeholder="Recherche..." autocomplete="off" />
                 </li>

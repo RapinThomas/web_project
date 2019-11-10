@@ -23,34 +23,36 @@ require_once '_header.php';
 
 <body>
     <h1><br> Nombre d'article : <?= $panier->count(); ?> </h1>
-    <?php
-    $ids = array_keys($_SESSION['panier']);
+    <form method="post" action="panier.php">
+        <?php
+        $ids = array_keys($_SESSION['panier']);
 
+        if (empty($ids)) {
+            $products = array();
+        } else {
+            $products =  $DB->query('SELECT * FROM produits WHERE id IN (' . implode(',', $ids) . ')');
+        }
+        foreach ($products as $product) :
 
-    if (empty($ids)) {
-        $products = array();
-    } else {
-        $products =  $DB->query('SELECT * FROM produits WHERE id IN (' . implode(',', $ids) . ')');
-    }
-    foreach ($products as $product) :
+            ?>
+            <div class="row">
+                <a href="#" class="img"> <img src="image/<?= $product->urlImage ?>"></a>
+                <span class="name"><?= $product->nom ?> </span>
+                <span class="price"><?= number_format($product->prix, 2, ',', ' ') ?>€ </span>
 
-        ?>
-        <div class="row">
-            <a href="#" class="img"> <img src="image/<?= $product->urlImage ?>"></a>
-            <span class="name"><?= $product->nom ?> </span>
-            <span class="price"><?= number_format($product->prix, 2, ',', ' ') ?>€ </span>
-            <span class="quantity"><?= $_SESSION['panier'][$product->id]; ?></span>
-            <span class="subtotal"><?= number_format($product->prix * 1.196, 2, ',', ' ') ?>€ </span>
-            <span class="action">
-                <a href='panier.php?delPanier=<?= $product->id; ?>' class="del"><img src="image\deletebutton.png"></a>
-            </span>
+                <span class="quantity"><input type="text" value="<?= $_SESSION['panier'][$product->id]; ?>" name="panier[quantity][<?= $product->id ?>]" width="30"></span>
+                <span class="subtotal"><?= number_format($product->prix * 1.196, 2, ',', ' ') ?>€ </span>
+                <span class="action">
+                    <a href='panier.php?delPanier=<?= $product->id; ?>' class="del"><img src="image\deletebutton.png"></a>
+                </span>
 
+            </div>
+        <?php endforeach; ?>
+        <input type="submit" value="recalculer">
+        <div class="rowtotal">
+            Total (TVA) : <span class="total"><?= number_format($panier->total() * 1.196, 2, ',', ' ') ?>€</span>
         </div>
-    <?php endforeach; ?>
-    <div class="rowtotal">
-        Total (TVA) : <span class="total"><?= number_format($panier->total() * 1.196, 2, ',', ' ') ?>€</span>
-    </div>
-
+    </form>
     <footer> <?php include_once 'footer.php' ?>
     </footer>
 </body>

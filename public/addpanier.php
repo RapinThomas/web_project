@@ -9,8 +9,8 @@ if (isset($_GET['id'])) {
     $panier->add($product[0]->id);
     // history::back permet de retourner d'un cran en arrière dans l'historique
     $json['error'] = false;
-    //$json['total'] = $panier->total;
-    //  $json['count'] = $panier->count();
+    $json['total'] = number_format($panier->total(), 2, ',', ' ');
+    $json['count'] = $panier->count();
     $json['message'] = 'Le produit a bien été ajouté à votre panier.';
 } else {
     $json['message'] = "Vous n'avez aucun article dans votre panier.";

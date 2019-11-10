@@ -16,6 +16,19 @@ class panier
 
             $this->del($_GET['delPanier']);
         }
+        if (isset($_POST['panier']['quantity'])) {
+            $this->recalc();
+        }
+    }
+    public function recalc()
+    {
+        //on empêche a l'utilisateur de soumettre de fausses valeurs 
+        foreach ($_SESSION['panier'] as $product_id => $quantity) {
+            if (isset($_POST['panier']['quantity']['$product_id'])) {
+                $_SESSION['panier'][$product_id] = $_POST['panier']['quantity'][$product_id];
+            }
+        }
+        $_SESSION['panier'] = $_POST['panier']['quantity'];
     }
     public function count()
     {
