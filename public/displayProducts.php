@@ -1,14 +1,13 @@
-
 <?php
+require_once '_header.php';
+$products = $DB->query('SELECT * FROM produits');
 
-$bdd = new PDO(
+/*$bdd = new PDO(
     'mysql:host=localhost;dbname=prosit;charset=utf8',
     'root',
     ''
-);
-$query = $bdd->prepare('SELECT * FROM produits');
-$query->execute();
-$tab_Product = $query->fetchAll();
+);*/
+
 /*
 foreach ($tab_Product as $product) :
     echo "<div class='displayprod'>
@@ -20,16 +19,20 @@ foreach ($tab_Product as $product) :
 	</div>";
 endforeach;
 */
-foreach ($tab_Product as $product) :
-    echo "
-<div class='singleArticle'>
-<img class='image' src='" . "image/" . $product['urlImage'] . "' alt=''>
 
-<div class='articleContent'>
-    <h3>" . $product['description'] . "</h3>
-    
-    <a href='#' class='btn'><div class='price'> " . $product['prix'] . " € </div></a>
+
+foreach ($products as $product) :
+    ?>
+    <div class='singleArticle'> <?= $product->nom ?>
+        <img class='image' src="image/<?= $product->urlImage ?>" alt=''>
+
+        <div class='articleContent'>
+            <h3><?php $product->description ?></h3>
+
+            <div class='price'> <?= number_format($product->prix, 2, ',', ' ') ?> € </div>
+            <a href="addpanier.php?id=<?= $product->id; ?>" class='add addPanier'> add to cart</a>
+        </div>
     </div>
-    </div>";
+<?php
 endforeach;
 ?>

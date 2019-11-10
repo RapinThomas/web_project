@@ -18,7 +18,8 @@
 
 
 <body>
-    <header> <?php include("menu.php") ?>
+    <header>
+        <?php include("menu.php") ?>
     </header>
     <section>
         <div class="container">
@@ -32,7 +33,7 @@
 
     </section>
 
-
+    <footer><?php include_once 'footer.php' ?> </footer>
     <script>
         $(window).on("scroll", function() {
             if ($(window).scrollTop()) {
@@ -42,6 +43,7 @@
             }
         })
     </script>
+
 </body>
 
 </html>
