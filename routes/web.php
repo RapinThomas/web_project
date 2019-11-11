@@ -11,13 +11,17 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('inscription', function () {
-    return view('connection/inscription');
+    return view('layouts/inscription');
 });
 Route::get('header', function () {
     return view('header');
+});
+Route::get('home', function () {
+    return view('home');
 });

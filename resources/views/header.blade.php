@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('titre')</title>
+    <title>{{ page_title($title ?? '')}}</title>
 </head>
 <body>
 <header>
@@ -36,21 +36,17 @@
 .element:nth-child(3)
 {
     order: 4;
+    margin-left: 3%;
 }
 .element:nth-child(4)
-{
-    order: 5;
-}
-.element:nth-child(5)
 {
     order: 1;
 }
     </style>
     <div id="conteneur">
         <h2 class="element">BDE cesi</h2>
-        <h3 class='element'><a href="">Se déconnecter/</a></h3>
-        <h3 class='element'><a href="">Panier/</a></h3>
-        <h3 class='element'><a href="">Profil</a></h3>
+        <h3 class='element'><a href="">{{isset($bt1) ? $bt1 : 'xc'}}</a></h3>
+        <h3 class='element'><a href="">{{isset($bt2) ? $bt2 : 'cd'}}</a></h3>
         <img src="D:\application\GIT\web\web_project\resources\image\logo.png" alt="rien"class='element'>
     </div>
 </header>
