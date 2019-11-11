@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('inscription', function () {
+    return view('connection/inscription');
+});
+Route::get('header', function () {
+    return view('header');
+});
