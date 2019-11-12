@@ -14,11 +14,11 @@
 
 <body>
 
-    @include('including.header')
+    @include('./including.header')
 
     <div id="container">
 
-        @include('including.nav')
+        @include('./including.nav')
         <div class="title">
             <h1>Liste des associations</h1>
             <div>
@@ -29,7 +29,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="description/description.php" class="btn btn-primary">Description</a>
+                            <a href="description" class="btn btn-primary">Description</a>
                             <a href="formulaireInscription.php" class="btn btn-primary">Inscription</a>
                         </div>
                     </div>
@@ -38,8 +38,8 @@
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="description/description.php" class="btn btn-primary">Description</a>
-                            <a href="formulaireInscription.php" class="btn btn-primary">Inscription</a>
+                            <a href="description" class="btn btn-primary">Description</a>
+                            <a href="formulaireInscription" class="btn btn-primary">Inscription</a>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem;">
@@ -47,8 +47,8 @@
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="description/description.php" class="btn btn-primary">Description</a>
-                            <a href="formulaireInscription.php" class="btn btn-primary">Inscription</a>
+                            <a href="description" class="btn btn-primary">Description</a>
+                            <a href="formulaireInscription" class="btn btn-primary">Inscription</a>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem;">
@@ -56,17 +56,17 @@
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="description/description.php" class="btn btn-primary">Description</a>
-                            <a href="formulaireInscription.php" class="btn btn-primary">Inscription</a>
+                            <a href="description" class="btn btn-primary">Description</a>
+                            <a href="formulaireInscription" class="btn btn-primary">Inscription</a>
                         </div>
                     </div>
                     <nav class="pages">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
 
-                                <li class="page-item"><a class="page-link" href="pageLambda.php">1</a></li>
-                                <li class="page-item"><a class="page-link" href="pageLambda2.php">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="association">1</a></li>
+                                <li class="page-item"><a class="page-link" href="association2">2</a></li>
+                                <li class="page-item"><a class="page-link" href="">3</a></li>
 
                             </ul>
                         </nav>
