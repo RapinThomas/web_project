@@ -44,3 +44,4 @@ Route::get('/header', function () {
 Route::get('/page', function () {
     return view('/association/pageLambda');
 });
+
