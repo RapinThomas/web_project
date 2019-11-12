@@ -2,7 +2,7 @@
 require '_header.php';
 $json = array('error' => true);
 if (isset($_GET['id'])) {
-    $product = $DB->query('SELECT id FROM produits WHERE id=:id', array('id' => $_GET['id']));
+    $product = $DB->query('SELECT id FROM article WHERE id=:id', array('id' => $_GET['id']));
     if (empty($product)) {
         $json['message'] = "Ce produit n'existe pas.";
     };

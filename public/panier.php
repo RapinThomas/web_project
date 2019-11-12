@@ -30,18 +30,18 @@ require_once '_header.php';
         if (empty($ids)) {
             $products = array();
         } else {
-            $products =  $DB->query('SELECT * FROM produits WHERE id IN (' . implode(',', $ids) . ')');
+            $products =  $DB->query('SELECT * FROM article WHERE id IN (' . implode(',', $ids) . ')');
         }
         foreach ($products as $product) :
 
             ?>
             <div class="row">
                 <a href="#" class="img"> <img src="image/<?= $product->urlImage ?>"></a>
-                <span class="name"><?= $product->nom ?> </span>
-                <span class="price"><?= number_format($product->prix, 2, ',', ' ') ?>€ </span>
+                <span class="name"><?= $product->name ?> </span>
+                <span class="price"><?= number_format($product->price, 2, ',', ' ') ?>€ </span>
 
                 <span class="quantity"><input type="text" value="<?= $_SESSION['panier'][$product->id]; ?>" name="panier[quantity][<?= $product->id ?>]" width="30"></span>
-                <span class="subtotal"><?= number_format($product->prix * 1.196, 2, ',', ' ') ?>€ </span>
+                <span class="subtotal"><?= number_format($product->price * 1.196, 2, ',', ' ') ?>€ </span>
                 <span class="action">
                     <a href='panier.php?delPanier=<?= $product->id; ?>' class="del"><img src="image\deletebutton.png"></a>
                 </span>
@@ -52,7 +52,9 @@ require_once '_header.php';
         <div class="rowtotal">
             Total (TVA) : <span class="total"><?= number_format($panier->total() * 1.196, 2, ',', ' ') ?>€</span>
         </div>
+
     </form>
-    <footer> <?php include_once 'footer.php' ?>
+    <footer>
+        <?php include_once 'footer.php' ?>
     </footer>
 </body>

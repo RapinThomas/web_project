@@ -4,7 +4,7 @@ class DB
     private $host = 'localhost';
     private $username = 'root';
     private $password = '';
-    private $database = 'prosit';
+    private $database = 'projet_web';
     private $db;
     public function __construct($host = null, $username = null, $password = null, $database = null)
     {

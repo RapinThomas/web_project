@@ -1,6 +1,6 @@
 <?php
 require_once '_header.php';
-$products = $DB->query('SELECT * FROM produits');
+$products = $DB->query('SELECT * FROM article');
 
 /*$bdd = new PDO(
     'mysql:host=localhost;dbname=prosit;charset=utf8',
@@ -23,13 +23,13 @@ endforeach;
 
 foreach ($products as $product) :
     ?>
-    <div class='singleArticle'> <?= $product->nom ?>
+    <div class='singleArticle'> <?= $product->name ?>
         <img class='image' src="image/<?= $product->urlImage ?>" alt=''>
 
         <div class='articleContent'>
             <h3><?php $product->description ?></h3>
 
-            <div class='price'> <?= number_format($product->prix, 2, ',', ' ') ?> € </div>
+            <div class='price'> <?= number_format($product->price, 2, ',', ' ') ?> € </div>
             <a href="addpanier.php?id=<?= $product->id; ?>" class='add addPanier'> add to cart</a>
         </div>
     </div>
