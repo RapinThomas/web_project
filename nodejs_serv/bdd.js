@@ -16,7 +16,8 @@ connection.connect(function (error) {
         console.log('Connected');
     }
 });
-app.get('/', function (req, resp) {
+module.exports = connection;
+/*app.get('/', function (req, resp) {
     connection.query("SELECT *FROM users", function (error, rows, field) {
         if (!!error) {
             console.log('Error in the query');
@@ -25,5 +26,4 @@ app.get('/', function (req, resp) {
             console.log(rows);
         }
     })
-})
-app.listen(3000);
+})*/

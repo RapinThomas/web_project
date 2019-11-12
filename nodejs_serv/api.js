@@ -40,7 +40,7 @@ Router.route("/articles/:articles_id")
     res.json({
       message: "Ajoute une nouvelle données" + req.params.articles_id,
       methode: req.method,
-      body: req.body
+      body: req.body,
     });
   })
   //PUT
